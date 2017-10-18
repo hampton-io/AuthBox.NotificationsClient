@@ -24,11 +24,12 @@ The client then has methods for sending notifications. All methods return promis
 Send a notification when a password reset is requests
 
 ```javascript
-await client.sendPasswordReset(email, code);
+await client.sendPasswordReset(email, code, clientId);
 ```
 
 - `email` the email address of the user receiving the notification
 - `code` the reset code the assigned to the user of the reset
+- `clientId` the clientId of the application where the user came from
 
 
 ## Running locally

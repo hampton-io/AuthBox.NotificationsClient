@@ -4,7 +4,7 @@
   "description": "Client for sending user notifications within DfE Login",
   "main": "lib/index.js",
   "scripts": {
-    "test": "jest"
+    "test": "./node_modules/.bin/jest"
   },
   "repository": {
     "type": "git",
@@ -20,7 +20,8 @@
     "kue": "^0.11.6"
   },
   "devDependencies": {
-    "jest": "^21.2.1"
+    "jest": "^21.2.1",
+    "jest-cli": "^21.2.1"
   },
   "jest": {
     "testEnvironment": "node",
