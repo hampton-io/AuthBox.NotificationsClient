@@ -75,23 +75,6 @@ describe('when sending an invitation', () => {
 
     expect(create.mock.calls[0][1].lastName).toBe(lastName);
   });
-
-  test('then it should create job with data including service name', async () => {
-    await client.sendInvitation(email, firstName, lastName, serviceName, serviceNameWelcomeMessage, serviceNameWelcomeMessageDescription);
-
-    expect(create.mock.calls[0][1].serviceName).toBe(serviceName);
-  });
-  test('then it should create job with data including service name welcome message', async () => {
-    await client.sendInvitation(email, firstName, lastName, serviceName, serviceNameWelcomeMessage, serviceNameWelcomeMessageDescription);
-
-    expect(create.mock.calls[0][1].serviceWelcomeMessage).toBe(serviceNameWelcomeMessage);
-  });
-  test('then it should create job with data including service name welcome message description', async () => {
-    await client.sendInvitation(email, firstName, lastName, serviceName, serviceNameWelcomeMessage, serviceNameWelcomeMessageDescription);
-
-    expect(create.mock.calls[0][1].serviceWelcomeDescription).toBe(serviceNameWelcomeMessageDescription);
-  });
-
   test('then it should save the job', async () => {
     await client.sendInvitation(email, firstName, lastName, serviceName, serviceNameWelcomeMessage, serviceNameWelcomeMessageDescription);
 
