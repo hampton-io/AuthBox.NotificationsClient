@@ -2,7 +2,7 @@ const utils = require('./utils');
 
 utils.getClient()
   .then((client) => {
-    client.sendInvitation('some.user@test.local', 'Test', 'User', 'New service', 'Welcome to new service', 'Welcome to new service, you can do the following.')
+    client.sendInvitation('some.user@test.local', 'Test', 'User', 'New service', '12345')
       .then(() => {
         console.info('Sent');
       })
