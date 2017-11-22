@@ -2,6 +2,8 @@
 
 [![Build Status](https://travis-ci.org/DFE-Digital/login.dfe.notifications.client.svg?branch=master)](https://travis-ci.org/DFE-Digital/login.dfe.notifications.client)
 
+[![tested with jest](https://img.shields.io/badge/tested_with-jest-99424f.svg)](https://github.com/facebook/jest)
+
 Client for sending user notifications within DfE Login
 
 ## Usage
