@@ -75,7 +75,7 @@ describe('when sending an invitation', () => {
   test('then it should save the job', async () => {
     await client.sendInvitation(email, firstName, lastName, invitationId);
 
-    expect(jobSave.mock.calls.length).toBe(1)
+    expect(jobSave.mock.calls.length).toBe(1);
   });
 
   test('then it should resolve if there is no error', async () => {

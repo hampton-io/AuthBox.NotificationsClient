@@ -13,7 +13,7 @@ const readConfig = async () => {
 const getClient = async () => {
   const config = await readConfig();
   return new NotificationClient(config);
-}
+};
 
 module.exports = {
   readConfig,

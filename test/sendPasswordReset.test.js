@@ -75,7 +75,7 @@ describe('when sending a password reset', () => {
   test('then it should save the job', async () => {
     await client.sendPasswordReset(email, code, clientId);
 
-    expect(jobSave.mock.calls.length).toBe(1)
+    expect(jobSave.mock.calls.length).toBe(1);
   });
 
   test('then it should resolve if there is no error', async () => {
