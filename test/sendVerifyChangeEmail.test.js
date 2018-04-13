@@ -8,6 +8,7 @@ describe('when sending a verification of change of email', () => {
   const firstName = 'User';
   const lastName = 'One';
   const code = 'ABC123';
+  const uid = 'user1';
 
   let invokeCallback;
   let jobSave;
@@ -77,6 +78,30 @@ describe('when sending a verification of change of email', () => {
     await client.sendVerifyChangeEmail(email, firstName, lastName, code);
 
     expect(create.mock.calls[0][1].code).toBe(code);
+  });
+
+  test('then it should create job with data not including uid if not passed', async () => {
+    await client.sendVerifyChangeEmail(email, firstName, lastName, code);
+
+    expect(create.mock.calls[0][1].uid).toBeUndefined();
+  });
+
+  test('then it should create job with data not including uid is undefined', async () => {
+    await client.sendVerifyChangeEmail(email, firstName, lastName, code, undefined);
+
+    expect(create.mock.calls[0][1].uid).toBeUndefined();
+  });
+
+  test('then it should create job with data not including uid is null', async () => {
+    await client.sendVerifyChangeEmail(email, firstName, lastName, code, null);
+
+    expect(create.mock.calls[0][1].uid).toBeUndefined();
+  });
+
+  test('then it should create job with data including uid if defined', async () => {
+    await client.sendVerifyChangeEmail(email, firstName, lastName, code, uid);
+
+    expect(create.mock.calls[0][1].uid).toBe(uid);
   });
 
   test('then it should save the job', async () => {
