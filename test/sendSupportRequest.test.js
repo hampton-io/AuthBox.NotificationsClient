@@ -8,6 +8,7 @@ describe('when sending a support request', () => {
   const email = 'user.one@unit.test';
   const phone = '1234567981';
   const service = 'DfE Sign-in Client Service';
+  const type = 'I have multiple accounts';
   const message = 'I am having trouble signing in using my new details';
   const reference = 'SIN123456798';
 
@@ -44,40 +45,41 @@ describe('when sending a support request', () => {
   });
 
   test('then it should create queue connecting to provided connection string', async () => {
-    await client.sendSupportRequest(name, email, phone, service, message, reference);
+    await client.sendSupportRequest(name, email, phone, service, type, message, reference);
 
     expect(createQueue.mock.calls.length).toBe(1);
     expect(createQueue.mock.calls[0][0].redis).toBe(connectionString);
   });
 
   test('then it should create job with type of supportrequest_v1', async () => {
-    await client.sendSupportRequest(name, email, phone, service, message, reference);
+    await client.sendSupportRequest(name, email, phone, service, type, message, reference);
 
     expect(create.mock.calls.length).toBe(1);
     expect(create.mock.calls[0][0]).toBe('supportrequest_v1');
   });
 
   test('then it should create job with data in call', async () => {
-    await client.sendSupportRequest(name, email, phone, service, message, reference);
+    await client.sendSupportRequest(name, email, phone, service, type, message, reference);
 
     expect(create.mock.calls[0][1]).toEqual({
       name,
       email,
       phone,
       service,
+      type,
       message,
       reference,
     });
   });
 
   test('then it should save the job', async () => {
-    await client.sendSupportRequest(name, email, phone, service, message, reference);
+    await client.sendSupportRequest(name, email, phone, service, type, message, reference);
 
     expect(jobSave.mock.calls.length).toBe(1);
   });
 
   test('then it should resolve if there is no error', async () => {
-    await expect(client.sendSupportRequest(name, email, phone, service, message, reference)).resolves.toBeUndefined();
+    await expect(client.sendSupportRequest(name, email, phone, service, type, message, reference)).resolves.toBeUndefined();
   });
 
   test('then it should reject if there is an error', async () => {
@@ -85,7 +87,7 @@ describe('when sending a support request', () => {
       callback('Unit test error');
     };
 
-    await expect(client.sendSupportRequest(name, email, phone, service, message, reference)).rejects.toBeDefined();
+    await expect(client.sendSupportRequest(name, email, phone, service, type, message, reference)).rejects.toBeDefined();
   });
 
 });
