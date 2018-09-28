@@ -6,6 +6,7 @@ describe('when sending a support request', () => {
   const connectionString = 'some-redis-connection';
   const name = 'User One';
   const email = 'user.one@unit.test';
+  const saUsername = 'userOne';
   const phone = '1234567981';
   const service = 'DfE Sign-in Client Service';
   const type = 'I have multiple accounts';
@@ -59,7 +60,7 @@ describe('when sending a support request', () => {
   });
 
   test('then it should create job with data in call', async () => {
-    await client.sendSupportRequest(name, email, phone, service, type, message, reference);
+    await client.sendSupportRequest(name, email, phone, service, type, message, reference, saUsername);
 
     expect(create.mock.calls[0][1]).toEqual({
       name,
@@ -69,6 +70,7 @@ describe('when sending a support request', () => {
       type,
       message,
       reference,
+      saUsername,
     });
   });
 
