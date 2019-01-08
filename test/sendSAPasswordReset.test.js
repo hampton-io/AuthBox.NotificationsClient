@@ -72,12 +72,7 @@ describe('when sending an SA user password reset', () => {
 
     expect(create.mock.calls[0][1].lastName).toBe(lastName);
   });
-
-  test('then it should create job with data including returnUrl', async () => {
-    await client.sendSAPasswordReset(email, firstName, lastName, returnUrl);
-
-    expect(create.mock.calls[0][1].returnUrl).toBe(returnUrl);
-  });
+  
 
   test('then it should save the job', async () => {
     await client.sendSAPasswordReset(email, firstName, lastName, returnUrl);
