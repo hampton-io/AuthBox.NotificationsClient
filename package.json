@@ -1,21 +1,21 @@
 {
-  "name": "login.dfe.notifications.client",
+  "name": "AuthBox.NotificationsClient",
   "version": "1.0.0",
-  "description": "Client for sending user notifications within DfE Login",
+  "description": "Client for sending user notifications within AuthBox.io",
   "main": "lib/index.js",
   "scripts": {
     "test": "./node_modules/.bin/jest"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DFE-Digital/login.dfe.notifications.client.git"
+    "url": "git+https://github.com/hampton-io/AuthBox.NotificationsClient"
   },
-  "author": "",
+  "author": "AuthBox.io",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/DFE-Digital/login.dfe.notifications.client/issues"
+    "url": "https://github.com/hampton-io/AuthBox.NotificationsClient/issues"
   },
-  "homepage": "https://github.com/DFE-Digital/login.dfe.notifications.client#readme",
+  "homepage": "https://github.com/hampton-io/AuthBox.NotificationsClient#readme",
   "dependencies": {
     "kue": "^0.11.6"
   },
@@ -23,8 +23,11 @@
     "eslint": "^4.9.0",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.8.0",
-    "jest": "^21.2.1",
-    "jest-cli": "^21.2.1"
+    "jest": "^25.0.0",
+    "jest-cli": "^25.0.0"
+  },
+  "engines": {
+    "node": "12.x.x"
   },
   "jest": {
     "testEnvironment": "node",
