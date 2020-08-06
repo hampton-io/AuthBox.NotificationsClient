@@ -1,17 +1,15 @@
-# login.dfe.notifications.client
-
-[![Build Status](https://travis-ci.org/DFE-Digital/login.dfe.notifications.client.svg?branch=master)](https://travis-ci.org/DFE-Digital/login.dfe.notifications.client)
+# AuthBox.notifications.client
 
 [![tested with jest](https://img.shields.io/badge/tested_with-jest-99424f.svg)](https://github.com/facebook/jest)
 
-Client for sending user notifications within DfE Login
+Client for sending user notifications within AuthBox
 
 ## Usage
 
 Create an instance of the NotificationClient, passing the connection string for the service
 
 ```
-const NotificatonClient = require('login.dfe.notifications.client');
+const NotificatonClient = require('authbox.notifications.client');
 const client = new NotificatonClient({
   connectionString: '[CONNECTION-STRING-PROVIDED]'
 });

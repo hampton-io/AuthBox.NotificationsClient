@@ -6,7 +6,7 @@ describe('when sending a support request confirmation', () => {
   const connectionString = 'some-redis-connection';
   const name = 'User One';
   const email = 'user.one@unit.test';
-  const service = 'DfE Sign-in Client Service';
+  const service = 'AuthBox Client Service';
   const reference = 'SIN123456798';
 
   let invokeCallback;
